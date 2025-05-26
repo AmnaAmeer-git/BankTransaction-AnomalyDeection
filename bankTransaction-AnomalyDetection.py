@@ -29,12 +29,7 @@ df['TransactionDate'] = pd.to_datetime(df['TransactionDate'])
 daily_transactions = df.groupby(df['TransactionDate'].dt.date)['TransactionID'].count()
 monthly_transactions = df.groupby(df['TransactionDate'].dt.to_period('M'))['TransactionID'].count()
 Transactions_per_hour = df.groupby(df['TransactionDate'].dt.hour)['TransactionID'].count()
-st.subheader('Daily transactions')
-st.write(daily_transactions)
-st.subheader('Monthly Transactions')
-st.write(monthly_transactions)
-st.subheader('Transactions Per Hour')
-st.write(Transactions_per_hour)
+
 
 
 mean = df.groupby(['AccountID'])['TransactionAmount'].transform('mean')
